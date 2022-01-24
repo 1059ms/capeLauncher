@@ -1,10 +1,8 @@
 package capeLauncher;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -30,8 +28,8 @@ public class Main {
 	
 	public static void addhost() {
 	    try {
-	        FileWriter writer = new FileWriter(hosts);
-	        writer.write("51.83.180.192 s.optifine.net");
+			PrintWriter writer = new PrintWriter(hosts);
+	        writer.write("51.77.35.155 s.optifine.net");
 	        writer.close();
 	        JOptionPane.showMessageDialog(null, "Custom capes successfully installed!", "Installed!", JOptionPane.INFORMATION_MESSAGE);
 	        System.exit(1);
@@ -46,6 +44,8 @@ public class Main {
 			PrintWriter writer = new PrintWriter(hosts);
 			writer.print("");
 			writer.close();
+			JOptionPane.showMessageDialog(null, "You succesfully removed custom capes!", "Succes", JOptionPane.INFORMATION_MESSAGE);
+			System.exit(1);
 		} catch (Exception e) {
 	    	JOptionPane.showMessageDialog(null, "Unexpected error", "Unexpected error", JOptionPane.ERROR_MESSAGE);
 	    	System.exit(0);
@@ -57,7 +57,6 @@ public class Main {
 		if(decision == 1) {
 			if(checkifalreadyinstalled()) {
 				remove();
-				JOptionPane.showMessageDialog(null, "You succesfully removed custom capes!", "Succes", JOptionPane.INFORMATION_MESSAGE);
 			}else{
 				JOptionPane.showMessageDialog(null, "You dont have custom capes installed!", "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -66,6 +65,6 @@ public class Main {
 				addhost();
 			else
 				JOptionPane.showMessageDialog(null, "You have already installed custom capes!", "Error", JOptionPane.ERROR_MESSAGE);
-		}		
+		}	
 	}
 }
